@@ -7,86 +7,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reg@los</title>
 
+    <!--CSS-->
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #header {
+            margin: 0;
+            
+        }
+    </style>
 </head>
 
 <body>
     <!--Encabezado de la página-->
-    <header>
+    <header id="header">
         <!--Sección del logo-->
-        <figure>
+        <figure id="logo">
             
         </figure>
 
         <!--Encabezado de página con links a otras páginas de interés-->
-        <nav>
-            <ul>
-                <li><a href="#">Iniciar Sesión</a></li>
-                <li><a href="#">Quiénes somos</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Catálogo</a></li>
+        <nav id="links-otros">
+            <ul id="lista-links">
+                <li class="links-de-interes"><a href="#">Iniciar Sesión</a></li>
+                <li class="links-de-interes"><a href="#">Quiénes somos</a></li>
+                <li class="links-de-interes"><a href="#">Contacto</a></li>
+                <li class="links-de-interes"><a href="#">Catálogo</a></li>
             </ul>
         </nav>
     </header>
 
     <!--Menú productos de la tienda-->
-    <div>
+    <div id="contenedor-menu-lateral">
         <nav>
-            <ul>
-                <li>
+            <ul id="productos-lateral">
+                <li class="producto-lateral">
                     <p><a href="#">Cosméticos</a></p>
                 </li>
-                <li>
+                <li class="producto-lateral">
                     <p><a href="#">Peluches</a></p>
                 </li>
-                <li>
+                <li class="producto-lateral">
                     <p><a href="#">Accesorios</a></p>
                 </li>
-                <li>
+                <li class="producto-lateral">
                     <p><a href="#">Flores</a></p>
                 </li>
-                <li>
+                <li class="producto-lateral">
                     <p><a href="#">Tarjetas</a></p>
                 </li>
-                <li>
+                <li class="producto-lateral">
                     <p><a href="#">Globos</a></p>
                 </li>
             </ul>
         </nav>
     </div>
     <!--Información de la página y productos-->
-    <main>
+    <main id="contenedor-info">
 
         <!--Información sobre la página-->
-        <section>
+        <section id="fondo-gris">
 
             <!--Contenedor de la info, fondo translúcido-->
-            <div>
+            <div id="contenido-info">
                 <p>Aquí va la info, chat gpt ;)</p>
             </div>
 
         </section>
 
         <!--Productos destacados-->
-        <section>
-            <article>
+        <section id="seccion-destacados">
+            <article class="articulo-destacado">
                 <figure>
-                    <img src="#" alt="">
+                    <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p></p>
+                <p class="info-art-dest"></p>
             </article>
 
-            <article>
+            <article class="articulo-destacado">
                 <figure>
-                    <img src="#" alt="">
+                    <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p></p>
+                <p class="info-art-dest"></p>
             </article>
 
-            <article>
+            <article class="articulo-destacado">
                 <figure>
-                    <img src="#" alt="">
+                    <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p></p>
+                <p class="info-art-dest"></p>
             </article>
         </section>
     </main>
