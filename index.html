@@ -7,197 +7,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reg@los</title>
 
-    <style>
-        * {
-            font-family: Yu Gothic Light;
-            margin: 0px;
-        }
-        
-        #navegacion {
-        
-            margin: 0px;
-            background-color: rgb(46, 119, 192);
-            color: rgb(255, 255, 255);
-            padding: 0px;
-            font-size: 30px;
-            height: 100px;
-        
-        }
-        
-        #logo {
-        
-            display: inline-block;
-            margin: 10px 25px;
-            padding: 0px;
-            background-color: #ffffff;
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-        
-        }
-        
-        #imgLogo {
-        
-            border-radius: 50%;
-            width: 75px;
-            height: 75px;
-        
-        }
-        
-        #menu {
-        
-            display: inline-block;
-            padding: 10px 25px;
-            margin: 0px;
-            margin-left: 150px;
-            margin-top: 15px;
-            position: absolute;
-        
-        }
-        
-        .menuOption {
-        
-            font-size: 20px;
-            display: inline-block;
-            margin: 0px 40px;
-            background-color: #ffffff;
-            padding: 5px;
-            border-radius: 15px;
-        }
-        
-        #cuerpo {
-            background-color: rgb(46, 119, 192);
-        }
-        
-        #menuLateral {
-        
-            display: inline-block;
-            width: 10vw;
-            height: 85vh;
-            background-color: rgb(46, 119, 192);
-            border-bottom-right-radius: 62px;
-        
-        }
-        
-        #sideList {
-        
-            list-style: none;
-            padding: 50px 0px;
-        
-        }
-        .sideButton {
-        
-            width: 100%;
-            margin: 20px 0px;
-        
-        }
-        
-        #cuerpo {
-            padding: 0;
-        }
-        
-        #mainContent {
-        
-            display: inline-block;
-            margin: 0;
-            padding: 20px;
-            width: 85vw;
-            height: 75vh;
-            /*border:rgb(46, 119, 192) solid 2px;*/
-            align-self: auto;
-            position: absolute;
-            background-color: #ffffff;
-            border-top-left-radius: 50px;
-        
-        }
-        
-        #mainInfo {
-        
-            margin: 0px;
-            border: #868686 solid 2px;
-            border-top-left-radius: 50px;
-            min-height: 55%;
-        
-        }
-        
-        #mainInfo h2 {
-        
-            text-align: center;
-            
-        
-        }
-        
-        #mainInfo p {
-            margin: 20px;
-        }
-        
-        #productImage {
-            border: 2px solid #868686;
-            margin-top: 20px;
-            height: 200px;
-        }
-        
-        .imageUnit {
-            display: inline-block;
-            width: 150px;
-            margin: 20px 10%;
-            height: 150px;
-        }
-        
-        .actualImage {
-            width: 150px;
-            height: 150px;
-            position: relative;
-        }
-            
-    </style>
 </head>
 
 <body>
+    <!--Encabezado de la página-->
     <header>
-        <nav id="navegacion">
-            <div id="logo">
-                <a href="index.html"><img src="imagen.webp" id="imgLogo" alt="Logotipo"></a>
-            </div>
-    
-            <div id="menu">
-                <ul>
-                    <li class="menuOption"><a href="formulario1.jsp">Iniciar sesión</a></li>
-                    <li class="menuOption"><a href="#">Quienes somos</a></li>
-                    <li class="menuOption"><a href="#">Contacto</a></li>
-                    <li class="menuOption"><a href="#">Catálogo</a></li>
-                </ul>
-            </div>
+        <!--Sección del logo-->
+        <figure>
+            
+        </figure>
+
+        <!--Encabezado de página con links a otras páginas de interés-->
+        <nav>
+            <ul>
+                <li><a href="#">Iniciar Sesión</a></li>
+                <li><a href="#">Quiénes somos</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Catálogo</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main id="cuerpo">
-        <nav id="menuLateral">
-            <ul id="sideList">
-                <li><button class="sideButton">Peluches</button></li>
-                <li><button class="sideButton">Cosméticos</button></li>
-                <li><button class="sideButton">Accesorios</button></li>
-                <li><button class="sideButton">Flores</button></li>
-                <li><button class="sideButton">Tarjetas</button></li>
-                <li><button class="sideButton">Globos</button></li>
+    <!--Menú productos de la tienda-->
+    <div>
+        <nav>
+            <ul>
+                <li>
+                    <p><a href="#">Cosméticos</a></p>
+                </li>
+                <li>
+                    <p><a href="#">Peluches</a></p>
+                </li>
+                <li>
+                    <p><a href="#">Accesorios</a></p>
+                </li>
+                <li>
+                    <p><a href="#">Flores</a></p>
+                </li>
+                <li>
+                    <p><a href="#">Tarjetas</a></p>
+                </li>
+                <li>
+                    <p><a href="#">Globos</a></p>
+                </li>
             </ul>
         </nav>
+    </div>
+    <!--Información de la página y productos-->
+    <main>
 
-        <div id="mainContent">
-            <section id="mainInfo">
-                <h2>Información principal</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum voluptate sint amet blanditiis enim quasi consequatur aperiam repellendus! Sed quis cumque nesciunt esse veritatis sunt alias dignissimos voluptate quaerat deserunt?</p>
-            </section>
+        <!--Información sobre la página-->
+        <section>
 
-            <section id="productImage">
-                <article class="imageUnit"><img src="imagen.webp" alt="Producto 1" class="actualImage"></article>
-                <article class="imageUnit"><img src="imagen.webp" alt="Producto 2" class="actualImage"></article>
-                <article class="imageUnit"><img src="imagen.webp" alt="Producto 3" class="actualImage"></article>
-            </section>
-        </div>
+            <!--Contenedor de la info, fondo translúcido-->
+            <div>
+                <p>Aquí va la info, chat gpt ;)</p>
+            </div>
+
+        </section>
+
+        <!--Productos destacados-->
+        <section>
+            <article>
+                <figure>
+                    <img src="#" alt="">
+                </figure>
+                <p></p>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="#" alt="">
+                </figure>
+                <p></p>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="#" alt="">
+                </figure>
+                <p></p>
+            </article>
+        </section>
     </main>
-    
-
 </body>
 
 </html>
