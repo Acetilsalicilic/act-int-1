@@ -9,6 +9,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión</title>
 
+    <!--/////////////////////////////////////////////////////////////////CONSULTA A BD//////////////////////////////////-->
+    <%
+
+    //---------------------DECLARACIÓN DE CLASE DE CONSULTA-------------
+    class ConexionBD {
+
+        //Here lies _registrarUsr_
+
+        public ResultSet consultarUsr() {
+
+            try {
+                
+                Class.forName(driver);
+
+                cx = DriverManager.getConnection(url, user, password);
+
+                System.out.println("Coneccion establecida");
+
+                st = cx.createStatement();
+
+                System.out.println("SQL Query: SELECT * FROM `musuarios` WHERE 1;");
+
+                ResultSet result = st.executeQuery("SELECT * FROM `musuarios` WHERE 1;");
+
+                return result;
+
+            } catch (SQLException e) {
+                
+                System.out.println(e.getMessage());
+                System.out.println("SQL EXCEPTION");
+
+            } catch (ClassNotFoundException e) {
+
+                System.out.println("CLASE NO ENCONTRADA");
+
+            }
+
+            return null;
+
+        }
+
+        public void cerrar() {
+
+            try {
+                
+                cx.close();
+
+            } catch (SQLException e) {
+                // TODO: handle exception
+                System.out.println("ERROR AL CERRAR");
+
+            }
+        }
+
+        private String 
+        driver = "com.mysql.cj.jdbc.Driver", 
+        bd = "reg@losdb", 
+        password = "", 
+        user = "root", 
+        url = "jdbc:mysql://localhost:3306/reg@losdb";
+        private Connection cx;
+        private Statement st;
+    }
+
+    //---------------------------------COMPROBACIÓN DE DATOS DE INICIO---------------*****************************************
+
+    ConexionBD con = new ConexionBD();
+
+    boolean existeUsuario = false;
+    boolean existePass = false;
+    String usuarioIngresado = request.getParameter("username");
+    String passIngresada = request.getParameter("password");
+
+    if (usuarioIngresado == null) {
+        usuarioIngresado="nouser";
+    }
+    if (passIngresada == null) {
+        passIngresada="nopassword";
+    }
+
+    //Obtener los usuarios y comparar
+
+    try {
+
+        ResultSet datos = con.consultarUsr();
+
+        while(datos.next() && existeUsuario == false) {
+
+            if (usuarioIngresado.equals(datos.getString(2))) {
+                
+                existeUsuario = true;
+
+            }
+
+        }
+
+        con.cerrar();
+
+    } catch (SQLException e) {
+
+    } catch (Exception e) {
+
+    }
+
+    //Hacer lo propio con la contraseña
+
+    try {
+
+        ResultSet datos = con.consultarUsr();
+
+        while(datos.next() && existePass == false) {
+
+            if (passIngresada.equals(datos.getString(3))) {
+                
+                existePass = true;
+
+            }
+
+        }
+
+        con.cerrar();
+
+    } catch (SQLException e) {
+
+    } catch (Exception e) {
+
+    }
+
+    %>
+    <!--//////////////////////////////////////////////////////FIN DE SCRIPLET//////////////////////////-->
+
+    
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
@@ -159,6 +291,11 @@
             color: #236dc2;
         }
 
+        /*Aviso de inexistencia*/
+        .aviso {
+            color: white;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -188,7 +325,7 @@
                 <p id="parrafo-login" class="texto-login">Por favor ingrese su usario y contraseña</p>
                 
                 <!--Inicio de sesión-->
-                <form action="#" method="post">
+                <form action="formulario1.jsp" method="post">
 
                     <table id="tabla-inputs">
                         <tr>
@@ -207,6 +344,20 @@
                                 <input type="password" name="password" id="password" class="input">
                             </td>
                         </tr>
+
+                        <%
+                            //Avisar si existe el usuario
+
+                            out.println("<p class='aviso'>" + usuarioIngresado + "</p>");
+                            out.println("<p class='aviso'>" + passIngresada + "</p>");
+
+                            if (!usuarioIngresado.equals("nouser")) {
+
+
+
+                            }
+                        %>
+
                         <tr>
                             <td colspan="2" class="celdas-input">
                                 <input type="submit" value="Iniciar sesión" id="login-button">
@@ -215,6 +366,7 @@
                     </table>
                 </form>
 
+                
                 <!--Registro de usuario nuevo-->
                 <p class="texto-login">¿Nuevo usuario? <a href="#" id="link-nuevo-usr">Haz click aquí</a> para registrarte.</p>
             </div>
