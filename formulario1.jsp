@@ -62,6 +62,53 @@
             color: white;
             font-size: 20px;
         }
+
+        /*Fondo*/
+        #fondo {
+            position: relative;
+            top: 120px;
+            background-image: url(imagenes/banner.jpg);
+            background-size:cover;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+
+        #fondo-gris {
+            position: relative;
+            left: 5%;
+            background-color:#1717178b;
+            padding: 50px;
+            margin: 50px 0px;
+            width: 80%;
+            height: 80%;
+        }
+
+        /*Login*/
+        .texto-login {
+            color: #fff;
+            text-align: center;
+        }
+
+        #titulo-login {
+            font-size: 35px;
+        }
+
+        #parrafo-login {
+            font-size: 25px;
+        }
+
+        #tabla-inputs {
+            position: relative;
+            width: 50%;
+            left: 25%;
+            text-align: center;
+        }
+
+        .input-label {
+            color: #ffffff;
+            font-size: 25px;
+        }
     </style>
 </head>
 <body>
@@ -83,5 +130,32 @@
         </nav>
     </header>
     
+    <main id="fondo">
+        <section id="fondo-gris">
+            <div id="contenedor-login">
+                <h2 id="titulo-login" class="texto-login">Inicio de sesión</h2>
+                <p id="parrafo-login" class="texto-login">Por favor ingrese su usario y contraseña</p>
+                
+                <table id="tabla-inputs">
+                    <tr>
+                        <td>
+                            <label for="" class="input-label">Usuario</label>
+                        </td>
+                        <td>
+                            <input type="text" name="" id="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="" class="input-label">Contraseña</label>
+                        </td>
+                        <td>
+                            <input type="password" name="" id="">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
