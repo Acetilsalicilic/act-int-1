@@ -355,7 +355,7 @@
                             out.println("<p class='aviso'>" + passIngresada + "</p>");
                             */
 
-                            if (!usuarioIngresado.equals("nouser")) {
+                            if (!usuarioIngresado.equals("nouser") || !passIngresada.equals("nopassword")) {
 
                                 if (!existeUsuario && !existePass) {
 
