@@ -303,7 +303,9 @@
     <header id="header">
         <!--Sección del logo-->
         <figure id="logo">
-            <img src="imagenes/logo.png" alt="logo" id="logo-img">
+            <a href="index.html">
+                <img src="imagenes/logo.png" alt="logo" id="logo-img">
+            </a>
         </figure>
 
         <!--Encabezado de página con links a otras páginas de interés-->
