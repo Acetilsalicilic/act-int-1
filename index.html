@@ -31,18 +31,28 @@
         }
 
         #logo {
-            display: inline-block;
-            position: relative;
+            float: left;
+            margin-right: 0px;
+        }
+
+        #logo-img {
+            width: 100px;
+            border-radius: 5px;
         }
 
         #link-otros {
             display: inline-block;
-            position: relative;
+        }
+
+        #lista-links {
+            width: 90%;
+            margin-top: 50px;
+            margin-left: 15%;
         }
 
         .links-de-interes {
-            display: inline;
-            margin: 0px 5%;
+            display: inline-block;
+            margin: 0 5%;
             
         }
 
@@ -101,9 +111,12 @@
             left: 10%;
             top: 120px;
             width: 90%;
-            padding-bottom: 100px;
+            height:800px;
+        }
 
-            background-color: #86d5fc;
+        #fondo-imagen-info {
+            background-image: url(banner.jpg);
+            background-size: cover;
         }
 
         #fondo-gris {
@@ -111,9 +124,23 @@
             position: relative;
             margin: 50px;
             width: 90%;
-            height: 150px;
-            background-color: rgba(58, 58, 58, 0.345);
+            height: 250px;
+            background-color: rgba(24, 24, 24, 0.567);
             text-align: center;
+        }
+
+        #titulo-bienvenida {
+            margin-top: 40px;
+            color: white;
+        }
+
+        #texto-bienvenida {
+            position: relative;
+            width: 80%;
+            color: white;
+            left: 10%;
+            top: 10%;
+            font-size: 20px;
         }
 
         /*Seccion de destacados*/
@@ -122,7 +149,17 @@
             width: 100%;
             height: 200px;
             padding: 10px;
-            
+            background-color: #fbfbfb;
+        }
+
+        #titulo-destacados {
+            text-align: center;
+        }
+
+        #info-destacados {
+            text-align: center;
+            margin: 20px 0;
+            margin-bottom: 50px;
         }
 
         .articulo-destacado {
@@ -130,8 +167,8 @@
             width: 25%;
             height: 200px;
             margin: 0 3%;
-            border: black 2px solid;
             text-align: center;
+            background-color: #f3f3f3;
         }
 
         .img-art-dest {
@@ -151,7 +188,7 @@
     <header id="header">
         <!--Sección del logo-->
         <figure id="logo">
-            <img src="#" alt="">
+            <img src="logo.png" alt="logo" id="logo-img">
         </figure>
 
         <!--Encabezado de página con links a otras páginas de interés-->
@@ -198,32 +235,48 @@
 
             <!--Contenedor de la info, fondo translúcido-->
             <div id="fondo-gris">
-                <p>Aquí va la info, chat gpt ;)</p>
+                <h2 id="titulo-bienvenida">
+                    ¡Bienvenido a Reg@los!
+                </h2>
+                <p id="texto-bienvenida">
+                    Nos complace recibirte en nuestra página web, donde encontrarás el lugar perfecto para descubrir regalos 
+                    únicos y especiales. En Reg@los, creemos que cada momento y cada persona merecen ser celebrados de manera 
+                    extraordinaria.
+                </p>
             </div>
 
         </section>
 
         <!--Productos destacados-->
         <section id="seccion-destacados">
+            <h2 id="titulo-destacados">
+                Sección productos destacados
+            </h2>
+
+            <p id="info-destacados">
+                ¡Descubre nuestra selección de productos destacados y encuentra el regalo perfecto para sorprender y 
+                alegrar a tus seres queridos
+            </p>
+
             <article class="articulo-destacado">
                 <figure>
                     <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p class="info-art-dest">Artículo 1</p>
+                <p class="info-art-dest">Ramo de flores "Lycoris Radiata"</p>
             </article>
 
             <article class="articulo-destacado">
                 <figure>
                     <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p class="info-art-dest">Artículo 2</p>
+                <p class="info-art-dest">Gel purificante facial</p>
             </article>
 
             <article class="articulo-destacado">
                 <figure>
                     <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p class="info-art-dest">Artículo 3</p>
+                <p class="info-art-dest">Globos de plata</p>
             </article>
         </section>
     </main>
