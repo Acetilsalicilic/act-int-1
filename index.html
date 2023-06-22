@@ -7,197 +7,290 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reg@los</title>
 
+    <!--CSS-->
     <style>
         * {
-            font-family: Yu Gothic Light;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
             margin: 0px;
+            height:100%;
+            overflow-x: hidden;
         }
-        
-        #navegacion {
-        
-            margin: 0px;
-            background-color: rgb(46, 119, 192);
-            color: rgb(255, 255, 255);
-            padding: 0px;
-            font-size: 30px;
-            height: 100px;
-        
-        }
-        
-        #logo {
-        
-            display: inline-block;
-            margin: 10px 25px;
-            padding: 0px;
-            background-color: #ffffff;
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-        
-        }
-        
-        #imgLogo {
-        
-            border-radius: 50%;
-            width: 75px;
-            height: 75px;
-        
-        }
-        
-        #menu {
-        
-            display: inline-block;
-            padding: 10px 25px;
-            margin: 0px;
-            margin-left: 150px;
-            margin-top: 15px;
-            position: absolute;
-        
-        }
-        
-        .menuOption {
-        
-            font-size: 20px;
-            display: inline-block;
-            margin: 0px 40px;
-            background-color: #ffffff;
-            padding: 5px;
-            border-radius: 15px;
-        }
-        
-        #cuerpo {
-            background-color: rgb(46, 119, 192);
-        }
-        
-        #menuLateral {
-        
-            display: inline-block;
-            width: 10vw;
-            height: 85vh;
-            background-color: rgb(46, 119, 192);
-            border-bottom-right-radius: 62px;
-        
-        }
-        
-        #sideList {
-        
-            list-style: none;
-            padding: 50px 0px;
-        
-        }
-        .sideButton {
-        
-            width: 100%;
-            margin: 20px 0px;
-        
-        }
-        
-        #cuerpo {
-            padding: 0;
-        }
-        
-        #mainContent {
-        
-            display: inline-block;
+
+        /*Header*/
+        #header {
             margin: 0;
-            padding: 20px;
-            width: 85vw;
-            height: 75vh;
-            /*border:rgb(46, 119, 192) solid 2px;*/
-            align-self: auto;
-            position: absolute;
-            background-color: #ffffff;
-            border-top-left-radius: 50px;
-        
+            background-color: #3287d1;
+            position: fixed;
+            width: 100%;
+            height: 120px;
+            display: block;
+            z-index: 100;
         }
-        
-        #mainInfo {
-        
-            margin: 0px;
-            border: #868686 solid 2px;
-            border-top-left-radius: 50px;
-            min-height: 55%;
-        
+
+        #logo {
+            float: left;
+            margin-right: 0px;
         }
-        
-        #mainInfo h2 {
-        
-            text-align: center;
-            
-        
+
+        #logo-img {
+            width: 100px;
+            border-radius: 5px;
         }
-        
-        #mainInfo p {
-            margin: 20px;
-        }
-        
-        #productImage {
-            border: 2px solid #868686;
-            margin-top: 20px;
-            height: 200px;
-        }
-        
-        .imageUnit {
+
+        #link-otros {
             display: inline-block;
-            width: 150px;
-            margin: 20px 10%;
-            height: 150px;
         }
-        
-        .actualImage {
-            width: 150px;
-            height: 150px;
-            position: relative;
+
+        #lista-links {
+            width: 90%;
+            margin-top: 50px;
+            margin-left: 15%;
         }
+
+        .links-de-interes {
+            display: inline-block;
+            margin: 0 5%;
             
+        }
+
+        .links-superiores {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        /*Lista lateral*/
+        #contenedor-menu-lateral {
+            position: fixed;
+            margin: 0px;
+            display: inline-block;
+            top: 0px;
+            width: 10%;
+            height: 300px;
+            padding-top: 120px;
+            padding-bottom: 260px;
+            background-color: #236dc2;
+            z-index: 50;
+        }
+
+        #productos-lateral {
+            list-style: none;
+            text-decoration: none;
+            color: white;
+            padding: 0px 10px;
+            margin-left: 10px;
+        }
+
+        .producto-lateral {
+            margin: 0;
+            
+        }
+
+        .producto-lateral {
+            margin-top: 20px;
+            padding: 1px 8px;
+            height: 2rem;
+        }
+
+        .link-lateral {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            margin: 0px;
+        }
+
+        /*Info*/
+        #contenedor-info {
+            display: inline-block;
+            position: relative;
+            left: 10%;
+            top: 120px;
+            width: 90%;
+            height:800px;
+        }
+
+        #fondo-imagen-info {
+            background-image: url(imagenes/banner.jpg);
+            background-size: cover;
+            height: 430px;
+        }
+
+        #fondo-gris {
+            display: inline-block;
+            position: relative;
+            margin: 50px;
+            width: 90%;
+            height: 250px;
+            background-color: rgba(24, 24, 24, 0.567);
+            text-align: center;
+        }
+
+        #titulo-bienvenida {
+            margin-top: 40px;
+            color: white;
+            font-size: 30px;
+        }
+
+        #texto-bienvenida {
+            position: relative;
+            width: 80%;
+            color: white;
+            left: 10%;
+            top: 10%;
+            font-size: 20px;
+        }
+
+        /*Seccion de destacados*/
+        #seccion-destacados {
+            display: inline-block;
+            width: 100%;
+            height: 500px;
+            padding: 10px;
+            background-color: #fbfbfb;
+        }
+
+        #titulo-destacados {
+            text-align: center;
+        }
+
+        #info-destacados {
+            text-align: center;
+            margin: 20px 0;
+            margin-bottom: 50px;
+        }
+
+        .articulo-destacado {
+            display: inline-block;
+            width: 25%;
+            height: 250px;
+            margin: 0 3%;
+            text-align: center;
+            background-color: #f3f3f3;
+        }
+
+        .img-art-dest {
+            height: 150px;
+            margin: 10px;
+        }
+
+        .info-art-destacado {
+            width: 100%;
+        }
+
+        .link-art-dest {
+            color: black;
+        }
     </style>
 </head>
 
 <body>
-    <header>
-        <nav id="navegacion">
-            <div id="logo">
-                <a href="index.html"><img src="imagen.webp" id="imgLogo" alt="Logotipo"></a>
-            </div>
-    
-            <div id="menu">
-                <ul>
-                    <li class="menuOption"><a href="formulario1.jsp">Iniciar sesión</a></li>
-                    <li class="menuOption"><a href="#">Quienes somos</a></li>
-                    <li class="menuOption"><a href="#">Contacto</a></li>
-                    <li class="menuOption"><a href="#">Catálogo</a></li>
-                </ul>
-            </div>
+    <!--Encabezado de la página-->
+    <header id="header">
+        <!--Sección del logo-->
+        <figure id="logo">
+            <img src="imagenes/logo.png" alt="logo" id="logo-img">
+        </figure>
+
+        <!--Encabezado de página con links a otras páginas de interés-->
+        <nav id="links-otros">
+            <ul id="lista-links">
+                <li class="links-de-interes"><a href="#" class="links-superiores">Iniciar Sesión</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Quiénes somos</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Contacto</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Catálogo</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main id="cuerpo">
-        <nav id="menuLateral">
-            <ul id="sideList">
-                <li><button class="sideButton">Peluches</button></li>
-                <li><button class="sideButton">Cosméticos</button></li>
-                <li><button class="sideButton">Accesorios</button></li>
-                <li><button class="sideButton">Flores</button></li>
-                <li><button class="sideButton">Tarjetas</button></li>
-                <li><button class="sideButton">Globos</button></li>
+    <!--Menú productos de la tienda-->
+    <div id="contenedor-menu-lateral">
+        <nav>
+            <ul id="productos-lateral">
+                <li class="producto-lateral">
+                    <p><a href="#" class="link-lateral">Cosméticos</a></p>
+                </li>
+                <li class="producto-lateral">
+                    <p><a href="#" class="link-lateral">Peluches</a></p>
+                </li>
+                <li class="producto-lateral">
+                    <p><a href="#" class="link-lateral">Accesorios</a></p>
+                </li>
+                <li class="producto-lateral">
+                    <p><a href="#" class="link-lateral">Flores</a></p>
+                </li>
+                <li class="producto-lateral">
+                    <p><a href="#" class="link-lateral">Tarjetas</a></p>
+                </li>
+                <li class="producto-lateral">
+                    <p><a href="#" class="link-lateral">Globos</a></p>
+                </li>
             </ul>
         </nav>
+    </div>
+    <!--Información de la página y productos-->
+    <main id="contenedor-info">
 
-        <div id="mainContent">
-            <section id="mainInfo">
-                <h2>Información principal</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum voluptate sint amet blanditiis enim quasi consequatur aperiam repellendus! Sed quis cumque nesciunt esse veritatis sunt alias dignissimos voluptate quaerat deserunt?</p>
-            </section>
+        <!--Información sobre la página-->
+        <section id="fondo-imagen-info">
 
-            <section id="productImage">
-                <article class="imageUnit"><img src="imagen.webp" alt="Producto 1" class="actualImage"></article>
-                <article class="imageUnit"><img src="imagen.webp" alt="Producto 2" class="actualImage"></article>
-                <article class="imageUnit"><img src="imagen.webp" alt="Producto 3" class="actualImage"></article>
-            </section>
-        </div>
+            <!--Contenedor de la info, fondo translúcido-->
+            <div id="fondo-gris">
+                <h2 id="titulo-bienvenida">
+                    ¡Bienvenido a Reg@los!
+                </h2>
+                <p id="texto-bienvenida">
+                    Nos complace recibirte en nuestra página web, donde encontrarás el lugar perfecto para descubrir regalos 
+                    únicos y especiales. En Reg@los, creemos que cada momento y cada persona merecen ser celebrados de manera 
+                    extraordinaria.
+                </p>
+            </div>
+
+        </section>
+
+        <!--Productos destacados-->
+        <section id="seccion-destacados">
+            <h2 id="titulo-destacados">
+                Sección productos destacados
+            </h2>
+
+            <p id="info-destacados">
+                ¡Descubre nuestra selección de productos destacados y encuentra el regalo perfecto para sorprender y 
+                alegrar a tus seres queridos!
+            </p>
+
+            <a href="#" class="link-art-dest">
+                <article class="articulo-destacado">
+                    <figure>
+                        <img src="imagenes/producto_1.jpg" alt="" class="img-art-dest">
+                    </figure>
+                    <p class="info-art-dest">Ramo de flores "Lycoris Radiata"</p>
+                </article>
+            </a>
+
+            <a href="#" class="link-art-dest">
+                <article class="articulo-destacado">
+                    <figure>
+                        <img src="imagenes/producto_2.jpg" alt="" class="img-art-dest">
+                    </figure>
+                    <p class="info-art-dest">Gel purificante facial</p>
+                </article>
+            </a>
+
+            <a href="#" class="link-art-dest">
+                <article class="articulo-destacado">
+                    <figure>
+                        <img src="imagenes/producto_3.jpg" alt="" class="img-art-dest">
+                    </figure>
+                    <p class="info-art-dest">Globos de plata</p>
+                </article>
+            </a>
+        </section>
     </main>
-    
-
 </body>
 
 </html>
