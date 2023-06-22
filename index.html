@@ -115,8 +115,9 @@
         }
 
         #fondo-imagen-info {
-            background-image: url(banner.jpg);
+            background-image: url(imagenes/banner.jpg);
             background-size: cover;
+            height: 430px;
         }
 
         #fondo-gris {
@@ -132,6 +133,7 @@
         #titulo-bienvenida {
             margin-top: 40px;
             color: white;
+            font-size: 30px;
         }
 
         #texto-bienvenida {
@@ -147,7 +149,7 @@
         #seccion-destacados {
             display: inline-block;
             width: 100%;
-            height: 200px;
+            height: 500px;
             padding: 10px;
             background-color: #fbfbfb;
         }
@@ -165,20 +167,23 @@
         .articulo-destacado {
             display: inline-block;
             width: 25%;
-            height: 200px;
+            height: 250px;
             margin: 0 3%;
             text-align: center;
             background-color: #f3f3f3;
         }
 
         .img-art-dest {
-            width: fit-content;
-            height: auto;
+            height: 150px;
             margin: 10px;
         }
 
         .info-art-destacado {
             width: 100%;
+        }
+
+        .link-art-dest {
+            color: black;
         }
     </style>
 </head>
@@ -188,7 +193,7 @@
     <header id="header">
         <!--Sección del logo-->
         <figure id="logo">
-            <img src="logo.png" alt="logo" id="logo-img">
+            <img src="imagenes/logo.png" alt="logo" id="logo-img">
         </figure>
 
         <!--Encabezado de página con links a otras páginas de interés-->
@@ -255,29 +260,35 @@
 
             <p id="info-destacados">
                 ¡Descubre nuestra selección de productos destacados y encuentra el regalo perfecto para sorprender y 
-                alegrar a tus seres queridos
+                alegrar a tus seres queridos!
             </p>
 
-            <article class="articulo-destacado">
-                <figure>
-                    <img src="#" alt="" class="img-art-dest">
-                </figure>
-                <p class="info-art-dest">Ramo de flores "Lycoris Radiata"</p>
-            </article>
+            <a href="#" class="link-art-dest">
+                <article class="articulo-destacado">
+                    <figure>
+                        <img src="imagenes/producto_1.jpg" alt="" class="img-art-dest">
+                    </figure>
+                    <p class="info-art-dest">Ramo de flores "Lycoris Radiata"</p>
+                </article>
+            </a>
 
-            <article class="articulo-destacado">
-                <figure>
-                    <img src="#" alt="" class="img-art-dest">
-                </figure>
-                <p class="info-art-dest">Gel purificante facial</p>
-            </article>
+            <a href="#" class="link-art-dest">
+                <article class="articulo-destacado">
+                    <figure>
+                        <img src="imagenes/producto_2.jpg" alt="" class="img-art-dest">
+                    </figure>
+                    <p class="info-art-dest">Gel purificante facial</p>
+                </article>
+            </a>
 
-            <article class="articulo-destacado">
-                <figure>
-                    <img src="#" alt="" class="img-art-dest">
-                </figure>
-                <p class="info-art-dest">Globos de plata</p>
-            </article>
+            <a href="#" class="link-art-dest">
+                <article class="articulo-destacado">
+                    <figure>
+                        <img src="imagenes/producto_3.jpg" alt="" class="img-art-dest">
+                    </figure>
+                    <p class="info-art-dest">Globos de plata</p>
+                </article>
+            </a>
         </section>
     </main>
 </body>
