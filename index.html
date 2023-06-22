@@ -13,9 +13,135 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        body {
+            margin: 0px;
+            height:100%;
+            overflow-x: hidden;
+        }
+
+        /*Header*/
         #header {
             margin: 0;
+            background-color: #3287d1;
+            position: fixed;
+            width: 100%;
+            height: 120px;
+            display: block;
+            z-index: 100;
+        }
+
+        #logo {
+            display: inline-block;
+            position: relative;
+        }
+
+        #link-otros {
+            display: inline-block;
+            position: relative;
+        }
+
+        .links-de-interes {
+            display: inline;
+            margin: 0px 5%;
             
+        }
+
+        .links-superiores {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        /*Lista lateral*/
+        #contenedor-menu-lateral {
+            position: fixed;
+            margin: 0px;
+            display: inline-block;
+            top: 0px;
+            width: 10%;
+            height: 300px;
+            padding-top: 120px;
+            padding-bottom: 260px;
+            background-color: #236dc2;
+            z-index: 50;
+        }
+
+        #productos-lateral {
+            list-style: none;
+            text-decoration: none;
+            color: white;
+            padding: 0px 10px;
+            margin-left: 10px;
+        }
+
+        .producto-lateral {
+            margin: 0;
+            
+        }
+
+        .producto-lateral {
+            margin-top: 20px;
+            padding: 1px 8px;
+            height: 2rem;
+        }
+
+        .link-lateral {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            margin: 0px;
+        }
+
+        /*Info*/
+        #contenedor-info {
+            display: inline-block;
+            position: relative;
+            left: 10%;
+            top: 120px;
+            width: 90%;
+            padding-bottom: 100px;
+
+            background-color: #86d5fc;
+        }
+
+        #fondo-gris {
+            display: inline-block;
+            position: relative;
+            margin: 50px;
+            width: 90%;
+            height: 150px;
+            background-color: rgba(58, 58, 58, 0.345);
+            text-align: center;
+        }
+
+        /*Seccion de destacados*/
+        #seccion-destacados {
+            display: inline-block;
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            
+        }
+
+        .articulo-destacado {
+            display: inline-block;
+            width: 25%;
+            height: 200px;
+            margin: 0 3%;
+            border: black 2px solid;
+            text-align: center;
+        }
+
+        .img-art-dest {
+            width: fit-content;
+            height: auto;
+            margin: 10px;
+        }
+
+        .info-art-destacado {
+            width: 100%;
         }
     </style>
 </head>
@@ -25,16 +151,16 @@
     <header id="header">
         <!--Sección del logo-->
         <figure id="logo">
-            
+            <img src="#" alt="">
         </figure>
 
         <!--Encabezado de página con links a otras páginas de interés-->
         <nav id="links-otros">
             <ul id="lista-links">
-                <li class="links-de-interes"><a href="#">Iniciar Sesión</a></li>
-                <li class="links-de-interes"><a href="#">Quiénes somos</a></li>
-                <li class="links-de-interes"><a href="#">Contacto</a></li>
-                <li class="links-de-interes"><a href="#">Catálogo</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Iniciar Sesión</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Quiénes somos</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Contacto</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Catálogo</a></li>
             </ul>
         </nav>
     </header>
@@ -44,22 +170,22 @@
         <nav>
             <ul id="productos-lateral">
                 <li class="producto-lateral">
-                    <p><a href="#">Cosméticos</a></p>
+                    <p><a href="#" class="link-lateral">Cosméticos</a></p>
                 </li>
                 <li class="producto-lateral">
-                    <p><a href="#">Peluches</a></p>
+                    <p><a href="#" class="link-lateral">Peluches</a></p>
                 </li>
                 <li class="producto-lateral">
-                    <p><a href="#">Accesorios</a></p>
+                    <p><a href="#" class="link-lateral">Accesorios</a></p>
                 </li>
                 <li class="producto-lateral">
-                    <p><a href="#">Flores</a></p>
+                    <p><a href="#" class="link-lateral">Flores</a></p>
                 </li>
                 <li class="producto-lateral">
-                    <p><a href="#">Tarjetas</a></p>
+                    <p><a href="#" class="link-lateral">Tarjetas</a></p>
                 </li>
                 <li class="producto-lateral">
-                    <p><a href="#">Globos</a></p>
+                    <p><a href="#" class="link-lateral">Globos</a></p>
                 </li>
             </ul>
         </nav>
@@ -68,10 +194,10 @@
     <main id="contenedor-info">
 
         <!--Información sobre la página-->
-        <section id="fondo-gris">
+        <section id="fondo-imagen-info">
 
             <!--Contenedor de la info, fondo translúcido-->
-            <div id="contenido-info">
+            <div id="fondo-gris">
                 <p>Aquí va la info, chat gpt ;)</p>
             </div>
 
@@ -83,21 +209,21 @@
                 <figure>
                     <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p class="info-art-dest"></p>
+                <p class="info-art-dest">Artículo 1</p>
             </article>
 
             <article class="articulo-destacado">
                 <figure>
                     <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p class="info-art-dest"></p>
+                <p class="info-art-dest">Artículo 2</p>
             </article>
 
             <article class="articulo-destacado">
                 <figure>
                     <img src="#" alt="" class="img-art-dest">
                 </figure>
-                <p class="info-art-dest"></p>
+                <p class="info-art-dest">Artículo 3</p>
             </article>
         </section>
     </main>
