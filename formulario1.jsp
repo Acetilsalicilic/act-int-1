@@ -12,285 +12,76 @@
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-        }
-        
-        body {
-            background-color: #fffaedaa;
-        }
-        
-        header {
-            width: 500px;
-            padding: 10px;
-            background: linear-gradient(90deg,rgba(127, 229, 229, 1) 0%,rgba(172, 220, 233, 1) 100%);
-            background-size: cover;
-        }
-        
-        #logo {
-            display: inline-block;
-            width: 70px;
-            height: 85px;
-        }
-        
-        h1 {
-            display: inline-block;
-            position: absolute;
-            top: 35px;
-            left: 140px;
-            font-size: 26px;
-            font-weight: 600;
-            color: #e64c31;
-            margin: 0 15px;
-        }
-        
-        div p {
-            font-weight: 700;
-            position: relative;
-            left: 20px;
-            bottom: 10px;
-            margin-top: 10px;
-        }
-        
-        #fieldContainer {
-            display: block;
-            width: 500px;
-            height: 150px;
-        }
-        
-        .inputLabel {
-            display: inline-block;
-            position: absolute;
-            left: 50px;
-            margin-top: 30px;
-        }
-        
-        .input {
-            display: inline-block;
-            position: relative;
-            left: 150px;
-            margin-top: 30px;
-        }
-        
-        /*
-        .inputLabel {
-            float: left;
-            margin: 10px 10px;
-        }
-        
-        .input {
-            float: left;
-            margin: 10px 10px;
-        }
-        
-        #passwordLabel {
-            clear: left;
-        }
-        */
-        
-        .buttons {
-            display: inline-block;
-            margin: 20px 70px;
-            margin-top: 0;
-            width: 100px;
-        }
-        
-        #registerChunk {
-            margin: 20px;
-            position: absolute;
-            left: 40px;
         }
 
-        .aviso {
-            width: 520px;
-            background: linear-gradient(90deg,rgba(127, 229, 229, 1) 0%,rgba(172, 220, 233, 1) 100%);
+        body {
+            margin: 0px;
+            height:100%;
+            overflow-x: hidden;
         }
-        </style>
+
+        /*Header*/
+        #header {
+            margin: 0;
+            background-color: #3287d1;
+            position: fixed;
+            width: 100%;
+            height: 120px;
+            display: block;
+            z-index: 100;
+        }
+
+        #logo {
+            float: left;
+            margin-right: 0px;
+        }
+
+        #logo-img {
+            width: 100px;
+            border-radius: 5px;
+        }
+
+        #link-otros {
+            display: inline-block;
+        }
+
+        #lista-links {
+            width: 90%;
+            margin-top: 50px;
+            margin-left: 15%;
+        }
+
+        .links-de-interes {
+            display: inline-block;
+            margin: 0 5%;
+            
+        }
+
+        .links-superiores {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-
-    <!--/////////////////////////////////////////////////////////////////CONSULTA A BD//////////////////////////////////-->
-    <%
-
-    //---------------------DECLARACIÓN DE CLASE DE CONSULTA-------------
-    class ConexionBD {
     
-        //Here lies _registrarUsr_
-    
-        public ResultSet consultarUsr() {
-    
-            try {
-                
-                Class.forName(driver);
-    
-                cx = DriverManager.getConnection(url, user, password);
-    
-                System.out.println("Coneccion establecida");
-    
-                st = cx.createStatement();
-    
-                System.out.println("SQL Query: SELECT * FROM `musuarios` WHERE 1;");
-    
-                ResultSet result = st.executeQuery("SELECT * FROM `musuarios` WHERE 1;");
-    
-                return result;
-    
-            } catch (SQLException e) {
-                
-                System.out.println(e.getMessage());
-                System.out.println("SQL EXCEPTION");
-    
-            } catch (ClassNotFoundException e) {
-    
-                System.out.println("CLASE NO ENCONTRADA");
-    
-            }
-    
-            return null;
-    
-        }
-    
-        public void cerrar() {
-    
-            try {
-                
-                cx.close();
-    
-            } catch (SQLException e) {
-                // TODO: handle exception
-                System.out.println("ERROR AL CERRAR");
-    
-            }
-        }
-    
-        private String 
-        driver = "com.mysql.cj.jdbc.Driver", 
-        bd = "reg@losdb", 
-        password = "", 
-        user = "root", 
-        url = "jdbc:mysql://localhost:3306/reg@losdb";
-        private Connection cx;
-        private Statement st;
-    }
+    <header id="header">
+        <!--Sección del logo-->
+        <figure id="logo">
+            <img src="imagenes/logo.png" alt="logo" id="logo-img">
+        </figure>
 
-    //---------------------------------COMPROBACIÓN DE DATOS DE INICIO---------------*****************************************
-
-    ConexionBD con = new ConexionBD();
-
-    boolean existeUsuario = false;
-    boolean existePass = false;
-    String usuarioIngresado = request.getParameter("username");
-    String passIngresada = request.getParameter("password");
-
-    if (usuarioIngresado == null) {
-        usuarioIngresado="nouser";
-    }
-    if (passIngresada == null) {
-        passIngresada="nopassword";
-    }
-
-    //Obtener los usuarios y comparar
-
-    try {
-
-        ResultSet datos = con.consultarUsr();
-
-        while(datos.next() && existeUsuario == false) {
-
-            if (usuarioIngresado.equals(datos.getString(2))) {
-                
-                existeUsuario = true;
-
-            }
-
-        }
-
-        con.cerrar();
-
-    } catch (SQLException e) {
-
-    }
-
-    //Avisar si existe el usuario
-
-    if (!usuarioIngresado.equals("nouser")) {
-        if (!existeUsuario) {
-
-            out.println("<p class='aviso'>El usuario ingresado NO existe</p>");
-    
-        } else {
-    
-            out.println("<p class='aviso'>El usuario ingresado existe</p>");
-    
-        }
-    }
-
-
-    //Hacer lo propio con la contraseña
-
-    try {
-
-        ResultSet datos = con.consultarUsr();
-
-        while(datos.next() && existePass == false) {
-
-            if (passIngresada.equals(datos.getString(3))) {
-                
-                existePass = true;
-
-            }
-
-        }
-
-        con.cerrar();
-
-    } catch (SQLException e) {
-
-    }
-
-    //Avisar si existe la contraseña
-
-    if (!passIngresada.equals("nopassword")) {
-        if (!existePass) {
-
-            out.println("<p class='aviso'>La contraseña ingresada NO existe</p>");
-    
-        } else {
-    
-            out.println("<p class='aviso'>La contraseña ingresada existe</p>");
-    
-        }
-    }
-
-
-    %>
-    <!--//////////////////////////////////////////////////////FIN DE SCRIPLET//////////////////////////-->
-
-    <header id="topChunk">
-        <div id="title">
-            <img src="Logo_IPN.png" alt="Logo" id="logo">
-            <h1 id="title2">Inicio de sesión</h1>
-            <p>Por favor ingrese su nombre de usuario y contraseña:</p>
-        </div>
+        <!--Encabezado de página con links a otras páginas de interés-->
+        <nav id="links-otros">
+            <ul id="lista-links">
+                <li class="links-de-interes"><a href="formulario1.jsp" class="links-superiores">Iniciar Sesión</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Quiénes somos</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Contacto</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Catálogo</a></li>
+            </ul>
+        </nav>
     </header>
-
-
-    <main id="formChunk">
-        <form action="formulario1.jsp" method="post">
-            <div id="fieldContainer">
-                <label for="username" class="inputLabel">Usuario</label>
-                <input type="text" name="username" id="username" required class="input">
-                <br>
-                <label for="password" class="inputLabel" id="passwordLabel">contraseña</label>
-                <input type="password" name="password" id="password" required class="input">
-            </div>
-
-            <input type="submit" value="Enviar" class="buttons">
-            <input type="reset" value="Limpiar" class="buttons">
-        </form>
-    </main>
-
-    <footer id="registerChunk">
-        <p>Si es usuario nuevo <a href="AltaClientesVerificado.jsp">Dar CLICK</a> aquí para Registrarse</p>
-    </footer>
+    
 </body>
 </html>
