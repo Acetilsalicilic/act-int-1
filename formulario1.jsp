@@ -18,6 +18,7 @@
             margin: 0px;
             height:100%;
             overflow-x: hidden;
+            overflow: hidden;
         }
 
         /*Header*/
@@ -80,6 +81,7 @@
             background-color:#1717178b;
             padding: 50px;
             margin: 50px 0px;
+            margin-top: 5px;
             width: 80%;
             height: 80%;
         }
@@ -98,6 +100,10 @@
             font-size: 25px;
         }
 
+        .celdas-input {
+            padding-top: 10px;
+        }
+
         #tabla-inputs {
             position: relative;
             width: 50%;
@@ -109,6 +115,50 @@
             color: #ffffff;
             font-size: 25px;
         }
+
+        .input {
+            color: white;
+            border: solid 2px #636363;
+            background-color: rgba(0, 0, 0, 0.14);
+            font-size: 20px;
+        }
+
+        .input:hover {
+            color: white;
+            border: solid 2px #a4a4a4;
+            background-color: rgb(0, 0, 0);
+        }
+
+        #login-button {
+            margin: 10px;
+            margin-top: 50px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.14);
+            color: white;
+            border: solid 2px #636363;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+        }
+
+        #login-button:hover {
+            margin: 10px;
+            margin-top: 50px;
+            padding: 10px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            border: solid 2px #a4a4a4;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+        }
+
+        #link-nuevo-usr {
+            color: #3287d1;
+        }
+
+        #link-nuevo-usr:hover {
+            color: #236dc2;
+        }
+
     </style>
 </head>
 <body>
@@ -130,30 +180,43 @@
         </nav>
     </header>
     
+    <!--Decoración-->
     <main id="fondo">
         <section id="fondo-gris">
             <div id="contenedor-login">
                 <h2 id="titulo-login" class="texto-login">Inicio de sesión</h2>
                 <p id="parrafo-login" class="texto-login">Por favor ingrese su usario y contraseña</p>
                 
-                <table id="tabla-inputs">
-                    <tr>
-                        <td>
-                            <label for="" class="input-label">Usuario</label>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="" class="input-label">Contraseña</label>
-                        </td>
-                        <td>
-                            <input type="password" name="" id="">
-                        </td>
-                    </tr>
-                </table>
+                <!--Inicio de sesión-->
+                <form action="#" method="post">
+
+                    <table id="tabla-inputs">
+                        <tr>
+                            <td class="celdas-input">
+                                <label for="username" class="input-label">Usuario</label>
+                            </td>
+                            <td class="celdas-input">
+                                <input type="text" name="username" id="username" class="input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celdas-input">
+                                <label for="password" class="input-label">Contraseña</label>
+                            </td>
+                            <td class="celdas-input">
+                                <input type="password" name="password" id="password" class="input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="celdas-input">
+                                <input type="submit" value="Iniciar sesión" id="login-button">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+                <!--Registro de usuario nuevo-->
+                <p class="texto-login">¿Nuevo usuario? <a href="#" id="link-nuevo-usr">Haz click aquí</a> para registrarte.</p>
             </div>
         </section>
     </main>
