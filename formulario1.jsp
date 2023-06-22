@@ -293,7 +293,7 @@
 
         /*Aviso de inexistencia*/
         .aviso {
-            color: white;
+            color: rgb(237, 86, 22);
             text-align: center;
         }
     </style>
@@ -348,12 +348,18 @@
                         <%
                             //Avisar si existe el usuario
 
+                            /*
                             out.println("<p class='aviso'>" + usuarioIngresado + "</p>");
                             out.println("<p class='aviso'>" + passIngresada + "</p>");
+                            */
 
                             if (!usuarioIngresado.equals("nouser")) {
 
+                                if (!existeUsuario && !existePass) {
 
+                                    out.println("<p class='aviso'>El usuario o la contraseña son incorrectos</p>");
+
+                                }
 
                             }
                         %>
