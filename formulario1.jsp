@@ -156,7 +156,7 @@
         <nav id="links-otros">
             <ul id="lista-links">
                 <li class="links-de-interes"><a href="formulario1.jsp" class="links-superiores">Iniciar Sesión</a></li>
-                <li class="links-de-interes"><a href="formulario2.jsp" class="links-superiores">Quiénes somos</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Quiénes somos</a></li>
                 <li class="links-de-interes"><a href="#" class="links-superiores">Contacto</a></li>
                 <li class="links-de-interes"><a href="#" class="links-superiores">Catálogo</a></li>
             </ul>

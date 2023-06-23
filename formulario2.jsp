@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alta de clientes</title>
-    <link rel="stylesheet" href="CSS/estiloFormo2.css">
+    <link rel="stylesheet" href="CSS/estiloForm2.css">
 
     <!--Clase conexión a BD-->
     <%
@@ -274,7 +274,7 @@
         <nav id="links-otros">
             <ul id="lista-links">
                 <li class="links-de-interes"><a href="formulario1.jsp" class="links-superiores">Iniciar Sesión</a></li>
-                <li class="links-de-interes"><a href="formulario2.jsp" class="links-superiores">Quiénes somos</a></li>
+                <li class="links-de-interes"><a href="#" class="links-superiores">Quiénes somos</a></li>
                 <li class="links-de-interes"><a href="#" class="links-superiores">Contacto</a></li>
                 <li class="links-de-interes"><a href="#" class="links-superiores">Catálogo</a></li>
             </ul>
@@ -288,7 +288,7 @@
                 <p id="parrafo-login" class="texto-login">Por favor ingrese los datos solicitados</p>
                 
                 <!--Inicio de sesión-->
-                <form action="formulario2.jsp" method="get">
+                <form action="formulario2.jsp" method="post">
                     
                     <table id="tabla-inputs">
                         <tr>
