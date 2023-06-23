@@ -144,19 +144,17 @@
 
     <script>
 
-        //Función para comrpobar el teléfono
+        //Función para comprobar el teléfono
         const comprobarTelefono = () => {
 
             const campo = document.getElementById("tel_cli");
-
             const expresion = /\D/;
+            const valor = campo.value;
 
-            console.log("Se ejecuta");
+            if (valor.length === 0) {
 
-            if (expresion.test(campo.value)) {
-
-                campo.setCustomValidity("Este campo sólo acepta números");
-                console.warn("Se ha insertado algo que no es un número");
+                console.error("Está vacío!");
+                return campo.setCustomValidity("Este campo es obligatorio");
 
             } else {
 
@@ -164,9 +162,22 @@
 
             }
 
+            if (expresion.test(valor)) {
+
+                campo.setCustomValidity("Este campo sólo acepta números");
+                console.warn("Se ha insertado algo que no es un número");
+
+            } else {
+
+                campo.setCustomValidity("");
+                console.log(valor);
+
+            }
+
         }
 
         //Función para el límite de crédito
+
 
         //Función para los campos obligatorios
 
