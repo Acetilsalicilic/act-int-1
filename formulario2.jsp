@@ -151,6 +151,7 @@
             const expresion = /\D/;
             const valor = campo.value;
 
+            //Probar si el valor es nulo
             if (valor.length === 0) {
 
                 console.error("Está vacío!");
@@ -162,6 +163,7 @@
 
             }
 
+            //Probar si cumple la condición
             if (expresion.test(valor)) {
 
                 campo.setCustomValidity("Este campo sólo acepta números");
@@ -177,9 +179,46 @@
         }
 
         //Función para el límite de crédito
+        const comprobarLimite = () => {
 
+            const campo = document.getElementById("ldc_cli");
+            const expresion = /[-+]?([0-9]*\.[0-9]+|[0-9]+)/;
+            const valor = campo.value;
+
+            //Probar si cumple la condición
+            if (!expresion.test(valor)) {
+
+                campo.setCustomValidity("Este campo sólo acepta números decimales");
+                console.warn("Se ha insertado algo que no es un número");
+
+            } else {
+
+                campo.setCustomValidity("");
+                console.log('El valor meets la regexp');
+
+            }
+
+        }
 
         //Función para los campos obligatorios
+        const campoObligatorio = (nombre) => {
+
+            const campo = document.getElementById(nombre);
+            const valor = campo.value;
+
+            //Probar si el valor es nulo
+            if (valor.length === 0) {
+
+                console.error("Está vacío!");
+                return campo.setCustomValidity("Este campo es obligatorio");
+
+            } else {
+
+                campo.setCustomValidity("");
+
+            }
+
+        }
 
     </script>
 </head>
@@ -214,15 +253,15 @@
                     
                     <table id="tabla-inputs">
                         <tr>
-                            <td class="celdas-input"><label for="ide_cli" class="input-label">ID Cliente</label></td>
+                            <td class="celdas-input"><label for="ide_cli" class="input-label">ID Cliente *</label></td>
                             <td class="celdas-input"><input type="text" name="ide_cli" id="ide_cli" class="input"></td>
                         </tr>
                         <tr>
-                            <td class="celdas-input"><label for="nom_cli" class="input-label">Nombre</label></td>
+                            <td class="celdas-input"><label for="nom_cli" class="input-label">Nombre *</label></td>
                             <td class="celdas-input"><input type="text" class="input" name="nom_cli" id="nom_cli"></td>
                         </tr>
                         <tr>
-                            <td class="celdas-input"><label for="dir_cli" class="input-label">Dirección</label></td>
+                            <td class="celdas-input"><label for="dir_cli" class="input-label">Dirección *</label></td>
                             <td class="celdas-input"><input type="text" class="input" name="dir_cli" id="dir_cli"></td>
                         </tr>
                         <tr>
@@ -238,7 +277,7 @@
                             <td class="celdas-input"><input type="number" class="input" name="cop_cli" id="cop_cli"></td>
                         </tr>
                         <tr>
-                            <td class="celdas-input"><label for="tel_cli" class="input-label">Teléfono</label></td>
+                            <td class="celdas-input"><label for="tel_cli" class="input-label">Teléfono *</label></td>
                             <td class="celdas-input"><input type="tel" class="input" name="tel_cli" id="tel_cli"></td>
                         </tr>
                         <tr>
@@ -276,7 +315,14 @@
 
         window.onload = () => {
 
+            //Campos con su propia función
             document.getElementById("tel_cli").oninput = comprobarTelefono;
+            document.getElementById("ldc_cli").oninput = comprobarLimite;
+
+            //Campos obligatorios
+            document.getElementById("ide_cli").oninput = campoObligatorio("ide_cli");
+            document.getElementById("nom_cli").oninput = campoObligatorio("nom_cli");
+            document.getElementById("dir_cli").oninput = campoObligatorio("dir_cli");
 
         }
 

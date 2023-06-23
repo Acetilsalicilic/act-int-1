@@ -224,7 +224,7 @@
 
                 
                 <!--Registro de usuario nuevo-->
-                <p class="texto-login">¿Nuevo usuario? <a href="#" id="link-nuevo-usr">Haz click aquí</a> para registrarte.</p>
+                <p class="texto-login">¿Nuevo usuario? <a href="formulario2.jsp" id="link-nuevo-usr">Haz click aquí</a> para registrarte.</p>
             </div>
         </section>
     </main>
