@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/estiloForm1.css">
+    <link rel="stylesheet" href="CSS/estilForm1.css">
     <title>Inicio de sesión</title>
 
     <!--/////////////////////////////////////////////////////////////////CONSULTA A BD//////////////////////////////////-->
@@ -176,7 +176,7 @@
                     <table id="tabla-inputs">
                         <tr>
                             <td class="celdas-input">
-                                <label for="username" class="input-label">Usuario</label>
+                                <label for="username" class="input-label">Usuario *</label>
                             </td>
                             <td class="celdas-input">
                                 <input type="text" name="username" id="username" class="input">
@@ -184,7 +184,7 @@
                         </tr>
                         <tr>
                             <td class="celdas-input">
-                                <label for="password" class="input-label">Contraseña</label>
+                                <label for="password" class="input-label">Contraseña *</label>
                             </td>
                             <td class="celdas-input">
                                 <input type="password" name="password" id="password" class="input">
@@ -203,10 +203,14 @@
 
                                 if (!passIngresada.equals("nopassword")) {
 
-                                    if (!existeUsuario || !existePass) {
-    
+                                    if (!existeUsuario) {
+
                                         out.println("<p class='aviso'>El usuario o la contraseña son incorrectos</p>");
     
+                                    } else if (!existePass) {
+
+                                        out.println("<p class='aviso'>El usuario o la contraseña son incorrectos</p>");
+
                                     }
 
                                 }
@@ -215,8 +219,11 @@
                         %>
 
                         <tr>
-                            <td colspan="2" class="celdas-input">
-                                <input type="submit" value="Iniciar sesión" id="login-button">
+                            <td class="celdas-input">
+                                <input type="submit" value="Iniciar sesión" class="login-button">
+                            </td>
+                            <td class="celdas-input">
+                                <input type="reset" value="Limpiar" class="login-button">
                             </td>
                         </tr>
                     </table>

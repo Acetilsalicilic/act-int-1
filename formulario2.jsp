@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alta de clientes</title>
-    <link rel="stylesheet" href="CSS/estiloForm2.css">
+    <link rel="stylesheet" href="CSS/estilForm2.css">
 
     <!--Clase conexión a BD-->
     <%
@@ -329,8 +329,11 @@
                         </tr>
 
                         <tr>
-                            <td colspan="2" class="celdas-input">
-                                <input type="submit" value="Registrar" id="reg-button">
+                            <td class="celdas-input">
+                                <input type="submit" value="Registrar" class="reg-button">
+                            </td>
+                            <td class="celdas-input">
+                                <a href="formulario1.jsp"><input type="button" value="Cancelar" class="reg-button"></a>
                             </td>
                         </tr>
                     </table>

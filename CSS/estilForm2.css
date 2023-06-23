@@ -122,7 +122,7 @@ body {
     background-color: rgb(0, 0, 0);
 }
 
-#reg-button {
+.reg-button {
     margin: 10px;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.14);
@@ -132,7 +132,7 @@ body {
     font-size: 15px;
 }
 
-#reg-button:hover {
+.reg-button:hover {
     margin: 10px;
     padding: 10px;
     background-color: rgb(0, 0, 0);
