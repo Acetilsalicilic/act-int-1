@@ -339,9 +339,13 @@
 
                 <%
 
-                if (result != 1) {
+                if (result != 1 && tel_cli != 0) {
 
                     out.println(aviso);
+
+                } else if (result == 1) {
+
+                    out.println("<p id='exito'>El cliente se ha registrado exitosamente</p>");
 
                 }
 
