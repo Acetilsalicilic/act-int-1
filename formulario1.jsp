@@ -211,6 +211,10 @@
 
                                         out.println("<p class='aviso'>El usuario o la contraseña son incorrectos</p>");
 
+                                    } else {
+
+                                        out.println("<p class='bienvenida'>¡Bienvenido de nuevo!</p>");
+
                                     }
 
                                 }
