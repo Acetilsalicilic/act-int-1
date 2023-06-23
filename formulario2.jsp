@@ -41,14 +41,14 @@
                 // TODO: handle exception
                 System.out.println(e.getMessage());
                 System.out.println("SQLExeption al registrar cliente");
+                return -2;
 
             } catch (ClassNotFoundException e) {
 
                 System.out.println("ClassNotFoundException al registrar cliente");
+                return -3;
 
             }
-
-            return -1;
         }
     
         public void cerrar() {
@@ -80,12 +80,12 @@
     <%
 
     String 
-    ide_cli = "",
-    nom_cli = "",
-    dir_cli = "",
-    ciu_cli = "",
-    est_cli = "",
-    com_cli = "";
+    ide_cli = "noid",
+    nom_cli = "noname",
+    dir_cli = "nodir",
+    ciu_cli = "nocity",
+    est_cli = "nostate",
+    com_cli = "nocoment";
 
     int
     cop_cli = 0,
@@ -96,18 +96,13 @@
 
     //Recabar datos
 
+    //Datos obligatorios
     try {
-
-        nom_cli = request.getParameter("nom_cli");
-        dir_cli = request.getParameter("dir_cli");
-        ciu_cli = request.getParameter("ciu_cli");
-        est_cli = request.getParameter("est_cli");
-        cop_cli = Integer.parseInt(request.getParameter("cop_cli"));
-        tel_cli = Integer.parseInt(request.getParameter("tel_cli"));
-        ldc_cli = Double.parseDouble(request.getParameter("ldc_cli"));
-        com_cli = request.getParameter("com_cli");
         
         ide_cli = request.getParameter("ide_cli");
+        nom_cli = request.getParameter("nom_cli");
+        dir_cli = request.getParameter("dir_cli");
+        tel_cli = Integer.parseInt(request.getParameter("tel_cli"));
 
     } catch (Exception e) {
 
@@ -115,12 +110,49 @@
 
     }
 
+    //Datos no obligatorios
+
+    //Ciudad
+    try {
+        ciu_cli = request.getParameter("ciu_cli");
+    } catch (Exception e) {
+        ciu_cli = "nocity";
+    }
+
+    //Estado
+    try {
+        est_cli = request.getParameter("est_cli");
+    } catch (Exception e) {
+        est_cli = "nostate";
+    }
+
+    //Código Postal
+    try {
+        cop_cli = Integer.parseInt(request.getParameter("cop_cli"));
+    } catch (Exception e) {
+        cop_cli = 0;
+    }
+
+    //Límite de crédito
+    try {
+        ldc_cli = Double.parseDouble(request.getParameter("ldc_cli"));
+    } catch (Exception e) {
+        ldc_cli = 0.0;
+    }
+
+    //Comentarios
+    try {
+        com_cli = request.getParameter("com_cli");
+    } catch (Exception e) {
+        com_cli = "nocoment";
+    }
+
     %>
 
     <!--Actualización a BD-->
     <%
 
-    String aviso = "<p class='aviso'>Los datos no se enviaron correctamente</p>";
+    
     int result = -1;
 
     if (!ide_cli.equals("noid")) {
@@ -132,6 +164,8 @@
 
         } catch (Exception e) {
 
+            result = -4;
+
         }
 
     } else {
@@ -139,6 +173,10 @@
         result = -1;
 
     }
+
+    
+
+    String aviso = "<p class='aviso'>Los datos no se enviaron correctamente. Código de error: " + result + "</p>";
 
     %>
 
@@ -201,7 +239,7 @@
         }
 
         //Función para los campos obligatorios
-        const campoObligatorio = (nombre) => {
+        const campoObligatorio = (nombre = undefined) => {
 
             const campo = document.getElementById(nombre);
             const valor = campo.value;
@@ -209,12 +247,13 @@
             //Probar si el valor es nulo
             if (valor.length === 0) {
 
-                console.error("Está vacío!");
+                console.log("El campo " + nombre + " está vacío!");
                 return campo.setCustomValidity("Este campo es obligatorio");
 
             } else {
 
                 campo.setCustomValidity("");
+                console.log("El campo " + nombre + " ya no está vacío");
 
             }
 
@@ -249,7 +288,7 @@
                 <p id="parrafo-login" class="texto-login">Por favor ingrese los datos solicitados</p>
                 
                 <!--Inicio de sesión-->
-                <form action="formulario2.jsp" method="post">
+                <form action="formulario2.jsp" method="get">
                     
                     <table id="tabla-inputs">
                         <tr>
@@ -316,14 +355,20 @@
         window.onload = () => {
 
             //Campos con su propia función
+            document.getElementById("tel_cli").onsubmit = comprobarTelefono;
             document.getElementById("tel_cli").oninput = comprobarTelefono;
+            document.getElementById("ldc_cli").onsubmit = comprobarLimite;
             document.getElementById("ldc_cli").oninput = comprobarLimite;
-
+            
             //Campos obligatorios
-            document.getElementById("ide_cli").oninput = campoObligatorio("ide_cli");
-            document.getElementById("nom_cli").oninput = campoObligatorio("nom_cli");
-            document.getElementById("dir_cli").oninput = campoObligatorio("dir_cli");
+            document.getElementById("ide_cli").oninput = () => {campoObligatorio('ide_cli')};
+            document.getElementById("nom_cli").oninput = () => {campoObligatorio('nom_cli')};
+            document.getElementById("dir_cli").oninput = () => {campoObligatorio('dir_cli')};
 
+            campoObligatorio('ide_cli');
+            campoObligatorio('nom_cli');
+            campoObligatorio('dir_cli');
+            
         }
 
         comprobarTelefono();
