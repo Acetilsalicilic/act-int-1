@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class ConexionBD {
+class ConexionBD {
 
     public static void main(String[] args) {
         

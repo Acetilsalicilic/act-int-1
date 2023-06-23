@@ -148,7 +148,7 @@
         <!--Sección del logo-->
         <figure id="logo">
             <a href="index.html">
-                <img src="imagenes/logo.png" alt="logo" id="logo-img">
+                <img src="CSS/imagenes/logo.png" alt="logo" id="logo-img">
             </a>
         </figure>
 
