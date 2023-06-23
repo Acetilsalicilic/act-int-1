@@ -199,11 +199,15 @@
                             out.println("<p class='aviso'>" + passIngresada + "</p>");
                             */
 
-                            if (!usuarioIngresado.equals("nouser") || !passIngresada.equals("nopassword")) {
+                            if (!usuarioIngresado.equals("nouser")) {
 
-                                if (!existeUsuario && !existePass) {
+                                if (!passIngresada.equals("nopassword")) {
 
-                                    out.println("<p class='aviso'>El usuario o la contraseña son incorrectos</p>");
+                                    if (!existeUsuario || !existePass) {
+    
+                                        out.println("<p class='aviso'>El usuario o la contraseña son incorrectos</p>");
+    
+                                    }
 
                                 }
 

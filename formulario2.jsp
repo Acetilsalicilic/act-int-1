@@ -141,6 +141,36 @@
     }
 
     %>
+
+    <script>
+
+        //Función para comrpobar el teléfono
+        const comprobarTelefono = () => {
+
+            const campo = document.getElementById("tel_cli");
+
+            const expresion = /\D/;
+
+            console.log("Se ejecuta");
+
+            if (expresion.test(campo.value)) {
+
+                campo.setCustomValidity("Este campo sólo acepta números");
+                console.warn("Se ha insertado algo que no es un número");
+
+            } else {
+
+                campo.setCustomValidity("");
+
+            }
+
+        }
+
+        //Función para el límite de crédito
+
+        //Función para los campos obligatorios
+
+    </script>
 </head>
 <body>
     <header id="header">
@@ -230,5 +260,17 @@
             </div>
         </section>
     </main>
+
+    <script>
+
+        window.onload = () => {
+
+            document.getElementById("tel_cli").oninput = comprobarTelefono;
+
+        }
+
+        comprobarTelefono();
+    </script>
+
 </body>
 </html>
